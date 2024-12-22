@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Roster</title>
+</head>
+<body>
+    <h1>Weekly Roster</h1>
+    <form action="{% url 'save_roster' %}" method="post">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Staff Name</th>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for staff in staff %}
+                <tr>
+                    <td>{{ staff.name }}</td>
+                    <td><select name="{{ staff.name }}_Sun">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                    <td><select name="{{ staff.name }}_Mon">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                    <td><select name="{{ staff.name }}_Tue">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                    <td><select name="{{ staff.name }}_Wed">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                    <td><select name="{{ staff.name }}_Thu">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                    <td><select name="{{ staff.name }}_Fri">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                    <td><select name="{{ staff.name }}_Sat">
+                        <option value="">Select</option>
+                        <option value="A.M.">A.M.</option>
+                        <option value="P.M.">P.M.</option>
+                    </select></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Save Roster</button>
+    </form>
+    <a href="/">Back to Main</a>
+</body>
+</html>
